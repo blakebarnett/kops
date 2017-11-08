@@ -469,10 +469,10 @@ func (b *BootstrapChannelBuilder) buildManifest() (*channelsapi.Addons, map[stri
 	if b.cluster.Spec.Networking.Calico != nil {
 		key := "networking.projectcalico.org"
 		versions := map[string]string{
-         "pre-k8s-1.6": "2.4.1",
-         "k8s-1.6":     "2.4.1",
-         "k8s-1.8":     "2.6.2",
-      }
+			"pre-k8s-1.6": "2.4.1",
+			"k8s-1.6":     "2.4.1",
+			"k8s-1.8":     "2.6.2",
+		}
 
 		{
 			id := "pre-k8s-1.6"
@@ -504,20 +504,20 @@ func (b *BootstrapChannelBuilder) buildManifest() (*channelsapi.Addons, map[stri
 			manifests[key+"-"+id] = "addons/" + location
 		}
 
-      {
-         id := "k8s-1.8"
+		{
+			id := "k8s-1.8"
 			location := key + "/" + id + ".yaml"
 
-         addons.Spec.Addons = append(addons.Spec.Addons, &channelsapi.AddonSpec{
-            Name:              fi.String(key),
-            Version:           fi.String(versions[id]),
-            Selector:          networkingSelector,
-            Manifest:          fi.String(location),
-            KubernetesVersion: ">=1.8.0",
-            Id:                id,
-         })
-         manifests[key+"-"+id] = "addons/" + location
-      }
+			addons.Spec.Addons = append(addons.Spec.Addons, &channelsapi.AddonSpec{
+				Name:              fi.String(key),
+				Version:           fi.String(versions[id]),
+				Selector:          networkingSelector,
+				Manifest:          fi.String(location),
+				KubernetesVersion: ">=1.8.0",
+				Id:                id,
+			})
+			manifests[key+"-"+id] = "addons/" + location
+		}
 	}
 
 	if b.cluster.Spec.Networking.Canal != nil {
