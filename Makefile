@@ -325,7 +325,7 @@ vsphere-version-dist: nodeup-dist protokube-export
 
 .PHONY: upload
 upload: version-dist # Upload kops to S3
-	aws s3 sync --acl public-read ${UPLOAD}/ ${S3_BUCKET}
+	awsudo pm-admin -- aws s3 sync --acl public-read ${UPLOAD}/ ${S3_BUCKET}
 
 # gcs-upload builds kops and uploads to GCS
 .PHONY: gcs-upload
