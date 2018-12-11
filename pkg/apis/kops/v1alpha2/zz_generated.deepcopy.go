@@ -2891,8 +2891,8 @@ func (in *KubeletConfigSpec) DeepCopyInto(out *KubeletConfigSpec) {
 			**out = **in
 		}
 	}
-	if in.ExperimentalAllowedUnsafeSysctls != nil {
-		in, out := &in.ExperimentalAllowedUnsafeSysctls, &out.ExperimentalAllowedUnsafeSysctls
+	if in.AllowedUnsafeSysctls != nil {
+		in, out := &in.AllowedUnsafeSysctls, &out.AllowedUnsafeSysctls
 		*out = make([]string, len(*in))
 		copy(*out, *in)
 	}
