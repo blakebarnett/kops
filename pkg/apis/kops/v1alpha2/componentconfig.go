@@ -165,7 +165,7 @@ type KubeletConfigSpec struct {
 	// Tells the Kubelet to fail to start if swap is enabled on the node.
 	FailSwapOn *bool `json:"failSwapOn,omitempty" flag:"fail-swap-on"`
 	// ExperimentalAllowedUnsafeSysctls are passed to the kubelet config to whitelist allowable sysctls
-	ExperimentalAllowedUnsafeSysctls []string `json:"experimental_allowed_unsafe_sysctls,omitempty" flag:"experimental-allowed-unsafe-sysctls"`
+	ExperimentalAllowedUnsafeSysctls []string `json:"experimentalAllowedUnsafeSysctls,omitempty" flag:"experimental-allowed-unsafe-sysctls"`
 	// StreamingConnectionIdleTimeout is the maximum time a streaming connection can be idle before the connection is automatically closed
 	StreamingConnectionIdleTimeout *metav1.Duration `json:"streamingConnectionIdleTimeout,omitempty" flag:"streaming-connection-idle-timeout"`
 	// DockerDisableSharedPID uses a shared PID namespace for containers in a pod.
@@ -176,8 +176,8 @@ type KubeletConfigSpec struct {
 	AuthenticationTokenWebhook *bool `json:"authenticationTokenWebhook,omitempty" flag:"authentication-token-webhook"`
 	// AuthenticationTokenWebhook sets the duration to cache responses from the webhook token authenticator. Default is 2m. (default 2m0s)
 	AuthenticationTokenWebhookCacheTTL *metav1.Duration `json:"authenticationTokenWebhookCacheTtl,omitempty" flag:"authentication-token-webhook-cache-ttl"`
-	// CpuManagementPolicy allows for changing the default policy of None to static
-	CpuManagementPolicy string `json:"cpuManagementPolicy,omitempty" flag:"cpu-manager-policy"`
+	// CpuManagerPolicy allows for changing the default policy of None to static
+	CpuManagerPolicy string `json:"cpuManagerPolicy,omitempty" flag:"cpu-manager-policy"`
 }
 
 // KubeProxyConfig defines the configuration for a proxy
